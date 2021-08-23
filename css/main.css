@@ -1,0 +1,96 @@
+/* Safari bounce */
+.wrap{position:fixed; width:100%;height:100%; overflow:auto; -webkit-overflow-scrolling: touch;}
+
+/* Global class css */
+.appWrap { position: relative; display: flex; flex-direction: column; max-width: 640px; height: 100vh; height: calc(var(--vh, 1vh) * 100); margin: 0 auto; box-sizing: border-box;}
+.gColor {color: transparent; background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%); background-clip: text; -webkit-background-clip: text;}
+
+/* animation */
+@keyframes splashLogo { from{opacity: 0; transform: translateY(35px);} to {opacity: 1; transform: translateY(0);} }
+
+/* splashScreen */
+.splashScreen {position: fixed;top: 0;left: 0; width: 100%;height: 100vh; z-index: 9999;}
+.splashScreen .logoWrap {position: absolute; top: 50%;left: 50%;transform: translate(-50%,-50%);}
+.splashScreen .logoWrap h2 {position: relative; font-size: 48px;font-weight: 800; animation: splashLogo 0.75s; letter-spacing: -0.03em;}
+.splashScreen .logoWrap h2 small {position: absolute; right: 0; top: -5px; font-size: 12px; font-weight: 400;letter-spacing: 0;}
+.splashScreen .logoWrap h2 img {position: absolute; left: 31px; top: -4px;}
+/* 그라디언트버전 */
+.splashScreen.Gbg {background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%);}
+.splashScreen.Gbg .logoWrap h2{color: #fff;}
+.splashScreen.Gbg .logoWrap h2 img.colorLeaf {display: none;}
+.splashScreen.Gbg .logoWrap h2 img.whiteLeaf {display: block;}
+/* 흰배경버전 */
+.splashScreen.Wbg {background: #fff;}
+.splashScreen.Wbg .logoWrap h2{background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%); color: transparent; background-clip: text; -webkit-background-clip: text;}
+.splashScreen.Wbg .logoWrap h2 small {color: #000;}
+.splashScreen.Wbg .logoWrap h2 img.colorLeaf {display: block;}
+.splashScreen.Wbg .logoWrap h2 img.whiteLeaf {display: none;}
+
+/* 좌측상단 info버튼 및 팝업 */
+.tirggerClick {cursor: pointer;position: absolute; width: 100%; height: 100%; left: 0; top: 0; z-index: 1;}
+#infoBtn {position: absolute;top: 20px;left: 15px; width: 25px; height: 25px; display: block;}
+#infoBtn img {width: 100%;}
+.popupWrap {position: absolute; top: 50px; left: 15px; width: calc(100% - 30px);height: 0; max-width: 330px; padding: 30px 20px; border-radius: 20px; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2); z-index: 100; opacity: 0; visibility: hidden; transition: 0.3s opacity; background: url('../img/infoBg.png') no-repeat bottom 23px right #fff; box-sizing: border-box;}
+.popupWrap.active {height: auto; opacity: 1; visibility: visible;}
+.popupWrap .popupHead {display: flex; align-items: center;justify-content: space-between; margin-bottom: 25px;}
+.popupWrap .popupHead h2 {font-size: 18px; font-weight: 800;}
+.popupWrap .popupHead button#closePopup {display: block; width: 18px; height: 18px;}
+.popupWrap .popupHead button#closePopup img{width: 100%;}
+.popupWrap .popupCont ul li:not(:last-of-type) {margin-bottom: 20px;}
+.popupWrap .popupCont ul li h3 { font-size: 16px; font-weight: 800; margin-bottom: 10px;}
+.popupWrap .popupCont ul li p {font-size: 12px; font-weight: 400; line-height: 16px; color: #333;}
+
+/* 메인 */
+.mainWrap {position: relative;height: 100%; background: url('../img/mainBg.png') no-repeat bottom center; background-size: contain;}
+.mainWrap .mainCont h1 {display: flex;justify-content: center; align-items: center; height: calc(100vh - 175px);}
+.mainWrap .mainCont .mainBtnBox {width: 290px; margin: 0 auto;}
+.mainWrap .mainCont .mainBtnBox button{ width: 100%; height: 50px; border-radius: 25px; color: #fff;}
+.mainWrap .mainCont .mainBtnBox button#gmarkCode {background-color: #2bb673;margin-bottom: 15px;}
+.mainWrap .mainCont .mainBtnBox button#goMain {background-color: #0ba9b5;}
+.mainWrap .mainCont .mainBtnBox button img {vertical-align: middle;margin-top: -4px; margin-right: 8px;}
+.mainWrap .mainCont .mainBtnBox button span {font-size: 14px; font-weight: 600;}
+
+/* g마크 인증후 로그인 안했을때 beforePoint.hmtl */
+.pointWrap {height: 100%; padding: 50px 0;}
+.pointWrap h1 {width: 120px; margin: 0 auto 30px;}
+.pointWrap h1 img {width: 100%;}
+.pointWrap .pointCont {width: calc(100% - 30px); height: 473px; overflow-y: auto; overflow-x: hidden; margin: auto; padding: 0 30px; border-radius: 20px; box-sizing: border-box; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);}
+.pointWrap .pointCont > div {padding: 30px 0; text-align: center;}
+.pointWrap .pointCont > div h3 {font-size: 18px; font-weight: 800; margin-bottom: 15px;}
+.pointWrap .pointCont > div:not(:last-of-type) {border-bottom: 1px solid #f7f7f7;}
+.pointWrap .pointCont .pointBox span {display: block; font-size: 14px; font-weight: 400; line-height: 18px; word-break: keep-all;}
+.pointWrap .pointCont .pointBox span .pointNumber {font-size: 36px; font-weight: 800;}
+
+.pointWrap .pointCont .pointCollect p {font-size: 12px; font-weight: 400; line-height: 16px; margin-bottom: 26px;}
+.pointWrap .pointCont .pointCollect .btnBox {display: flex; align-items: center; justify-content: center;}
+.pointWrap .pointCont .pointCollect .btnBox button {width: 120px; height: 40px; border-radius: 19px; font-size: 14px; font-weight: 600; box-sizing: border-box;}
+.pointWrap .pointCont .pointCollect .btnBox button#submitBtn { background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%); margin-right: 10px; color: #fff;}
+.pointWrap .pointCont .pointCollect .btnBox button#cancelBtn {border: 1px solid #e0e0e0; color: #666;}
+
+.pointWrap .pointCont .pointService ul {display: flex; justify-content: space-between; align-items: center; width: 280px; margin: auto;}
+.pointWrap .pointCont .pointService ul li figure figcaption {margin-top: 10px;}
+.pointWrap .pointCont .pointService ul li figure figcaption dl dt{font-size: 12px; font-weight: 600;}
+
+/* 로그인 */
+.loginWrap {background: url('../img/lgoinBg.png') no-repeat center top 115px; background-size: contain;}
+.loginWrap .loginHead {position: relative; height: 170px;}
+.loginWrap .loginHead h1 {position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.loginWrap .loginCont {height: calc(100vh -  170px); border-top-left-radius: 19px; border-top-right-radius: 19px; box-shadow: 0px 4px 20px 0px rgba(21, 21, 21, 0.2); background-color: #fff;}
+.loginWrap .loginCont > div {width: 290px; margin: 0 auto; padding-top: 50px; text-align: center;}
+.loginWrap .loginCont > div h3 {font-size: 18px; font-weight: 600; margin-bottom: 30px;}
+.loginWrap .loginCont > div button {position: relative; width: 100%; height: 50px; border-radius: 25px; font-size: 14px; font-weight: 600; box-shadow: 0px 4px 10px 0px rgba(21, 21, 21, 0.2);}
+.loginWrap .loginCont > div button:not(:last-of-type) {margin-bottom: 15px;}
+.loginWrap .loginCont .loginBox button img {position: absolute; margin-right: 30px; left: 30px; top: 50%; transform: translateY(-50%);}
+.loginWrap .loginCont .loginBox button#kakaoLogin {background-color: #ffe800; color: #381922;}
+.loginWrap .loginCont .loginBox button#googleLogin {background-color: #fff; color: #666;}
+.loginWrap .loginCont .loginBox button#naverLogin {background-color: #00bf18; color: #fff;}
+.loginWrap .loginCont .signupBox button#signupBtn {background-color: #f7f7f7;}
+
+
+
+
+
+
+
+
+

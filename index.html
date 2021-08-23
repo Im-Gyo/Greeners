@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/jquery.js"></script>
+
+    <title>greeners</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="appWrap">
+            <!-- 아무곳 누르면 팝업 꺼지는 background -->
+            <div class="tirggerClick hidden"></div>
+            <!-- info popup -->
+            <div class="popupWrap">
+                <div class="popupHead">
+                    <h2 class="gColor">GREENERS 사용법</h2>
+                    <button type="button" class="resetbtn" id="closePopup">
+                        <img src="./img/close_icon.png" alt="close">
+                    </button>
+                </div>
+                <div class="popupCont">
+                    <ul>
+                        <li>
+                            <h3>GREENERS란?</h3>
+                            <p>
+                                GREENERS 는 Green 과 Gardner 의 합성입니다.<br>
+                                친환경 포장재를 사용해 G마크가 표시된 제품을 구입 후<br>
+                                인증하면 포인트를 드려요!<br>
+                                간단한 방법으로 환경도 보호하고 나만의 매력적인 가든도<br>
+                                가꾸어 보세요!
+                            </p>
+                        </li>
+                        <li>
+                            <h3>포인트 적립방법</h3>
+                            <p>
+                                제품에 친환경 소재 제작을 인증하는 G마크가 삽입되었는지<br>
+                                확인하고 해당 QR코드를 인식하면 끝!<br>
+                                포인트는 제품 가격의 **퍼센트 적립됩니다.<br>
+                                포인트 적립을 위해선 회원가입 및 로그인이 필요해요.<br>
+                                편리한 이용을 위해 설치 후 한 번만 진행하면 된답니다.
+                            </p>
+                        </li>
+                        <li>
+                            <h3>포인트 어디에 쓰나요?</h3>
+                            <p>
+                                G마크 인증 후 받는 포인트를 차곡차곡 모아 나만의<br>
+                                그린 정원을 가꾸어 보세요!<br>
+                                포인트는 정원 데코에 필요한 요소를 구입하는 과정에서<br>
+                                사용할 수 있어요.<br>
+                                나의 예쁜 정원을 친구나 지인들에게 공유하고<br>
+                                서로 방문할 수도 있답니다
+                            </p>
+                        </li>
+                        <li>
+                            <h3>포인트 확인은 어디서 하나요?</h3>
+                            <p>
+                                &#60;마이페이지&#62; 의 &#60;적립 내역 확인&#62; 에서 확인할 수 있어요.<br>
+                                포인트는 가용 기간이 정해져 있지 않습니다.<br>
+                                영구 사용 가능해요.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- main -->
+            <section class="mainWrap">
+                <button type="button" class="resetbtn" id="infoBtn">
+                    <img src="./img/info_icon.png" alt="infoicon">
+                </button>
+                <div class="mainCont">
+                    <h1>
+                        <img src="./img/mainLogo.png" alt="mainLogo">
+                    </h1>
+                    <div class="mainBtnBox">
+                        <button type="button" class="resetbtn" id="gmarkCode" onclick="location.href='./beforePoint.html'">
+                            <img src="./img/gmark_iocn.png" alt="QRcode"><span>G마크 인증하기</span>
+                        </button>
+                        <button type="button" class="resetbtn" id="goMain">
+                            <img src="./img/touch_icon.png" alt="touch"><span>메인 바로가기</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function()
+        {
+            splashEvent()
+        });
+
+        //로딩화면
+        function splashEvent()
+        {
+            // 그라디언트 배경 Gbg, 흰배경 Wbg
+            var splash =
+            '<div class="splashScreen Gbg">'+
+            '<div class="logoWrap">'+
+            '<h2>'+
+            '<small>내 손안의 작은 숲</small>'+
+            '<img class="colorLeaf" src="./img/logo.png" alt="logo">'+
+            '<img class="whiteLeaf" src="./img/logoWhite.png" alt="whitelogo">Greeners</h2>'+
+            '</div>'+
+            '</div>';
+
+            $('.appWrap').append(splash);
+            setTimeout(function()
+            {
+                $('.splashScreen').remove();
+            }, 2000);
+        }
+
+        //info창 열기
+        $('#infoBtn').click(function()
+        {
+            if(!$('.popupWrap').hasClass('active'))
+            {
+                $('.popupWrap').addClass('active');
+                $('.tirggerClick').removeClass('hidden');
+            }
+            else
+            {
+                $('.popupWrap').removeClass('active');
+                $('.tirggerClick').addClass('hidden');
+            }
+        });
+        //info창 trigger
+        $('#closePopup, .tirggerClick').click(function()
+        {
+            $('#infoBtn').trigger('click');
+        }); 
+    </script>
+</body>
+</html>
