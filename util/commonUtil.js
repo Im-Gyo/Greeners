@@ -7,5 +7,5 @@ let commonUtil = (module.exports = {
         jsonObject['resultData'] = resultData;
 
         res.status(status).json(jsonObject);
-    }    
+    }
 })

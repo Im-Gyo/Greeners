@@ -1,7 +1,7 @@
 const express = require("express");
-const dbCon = mysql.createConnection({
-
-});
+const config = require('../config/config.json');
+const mysqlPool = mysql.createPool(config.database);
+const dbConnection = mysql.createConnection(config.dbInfo);
 
 let instance;
 
@@ -17,6 +17,7 @@ class DataCacheManager {
     init(){
 
     }
+    
     async memberRegister(memberData, successCallBack, failedCallBack) {
         let nickName = memberData.nickName;
         let id = memberData.id;
@@ -35,7 +36,36 @@ class DataCacheManager {
 }
 
 function getConnection() {
-    return dbCon;
+    return dbConnection;
 };
+
+// 커넥션풀 쿼리
+connectionPoolQuery(queryStr, successCallBack, failedCallBack)
+    {
+        mysqlPool.getConnection(async function (err, conn)
+        {
+            if(err)
+            {
+                console.log(err);
+                failedCallBack(err);
+                return;
+            }
+
+            conn.query(queryStr,[], 
+                //성공 콜백
+                function (err, result) 
+                {
+                    if(err)
+                    {
+                        console.log(err);
+                        failedCallBack(err);
+                        return;
+                    }
+                    successCallBack(result);
+                }
+            );
+            conn.release();
+        });        
+    }
 
 module.exports = DataCacheManager;

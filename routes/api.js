@@ -5,6 +5,11 @@ const commonUtil = require('../util/commonUtil');
 const db_info = require('../config/config');
 const dbPool = mysql.createPool(db_info);
 
+// 메인 페이지
+router.all('/', (req, res, next) => {
+    res.render('index.html', {req: req});
+})
+
 //샘플
 router.get("/sample", function(req, res){
     let resultData = {};
@@ -22,7 +27,6 @@ router.get("/sample", function(req, res){
         commonUtil.sendResponse(res, 200, '0', 'sample', resultData);
     });
 });
-
 
 router.get("/test", (req, res) => {
     const queryString = parseInt(req.query.sample_id);
