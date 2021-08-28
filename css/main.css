@@ -25,6 +25,9 @@
 .splashScreen.Wbg .logoWrap h2 small {color: #000;}
 .splashScreen.Wbg .logoWrap h2 img.colorLeaf {display: block;}
 .splashScreen.Wbg .logoWrap h2 img.whiteLeaf {display: none;}
+/* 글로벌 버튼 스타일 */
+.goingRightIcon,.goingLeftIcon {position: relative; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%);}
+.goingRightIcon img,.goingLeftIcon img {position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
 
 /* 좌측상단 info버튼 및 팝업 */
 .tirggerClick {cursor: pointer;position: absolute; width: 100%; height: 100%; left: 0; top: 0; z-index: 1;}
@@ -136,8 +139,11 @@
 .mainHeader .headType.searchHead .searchBox label button#searchBtn {position: absolute; height: 100%; top: 50%; right: 21px; transform: translateY(-50%);}
 .mainHeader .headType.searchHead .searchBox button#searchCloseBtn {height: 100%;}
 
+/* 헤더있는 컨텐츠 */
+.headonWrap {height: calc(100vh - 65px); padding-top: 30px; box-sizing: border-box;}
+
 /* 메인 */
-.mainWrap {height: calc(100vh - 65px); padding-top: 30px; padding-bottom: 75px; background: url('../img/mainBg2.png')no-repeat center bottom #fff; background-size: contain; box-sizing: border-box; overflow: auto;}
+.mainWrap {padding-bottom: 75px; background: url('../img/mainBg2.png')no-repeat center bottom #fff; background-size: contain; box-sizing: border-box; overflow: auto;}
 .mainWrap .slideWrap {width: 100%; height: 220px; overflow: auto; -ms-overflow-style: none; scrollbar-width: none;}
 .mainWrap .slideWrap::-webkit-scrollbar {display: none;}
 .mainWrap .slideWrap ul.noticeList {}
@@ -161,8 +167,29 @@
 .mainWrap .goPageList li a .listhead {width: calc(100% - 30px);}
 .mainWrap .goPageList li a .listhead h3 {font-size: 14px; font-weight: 800; margin-bottom: 4px;}
 .mainWrap .goPageList li a .listhead span {display: block; font-size: 10px; font-weight: 800; line-height: 1;}
-.mainWrap .goPageList li a .goingPageIcon {position: relative; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%);}
-.mainWrap .goPageList li a .goingPageIcon img {position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+
+
+/* 게시판 */
+.communityWrap {padding-bottom: 30px; background: url('../img/mainBg2.png')no-repeat center bottom #fff; background-size: contain; overflow: auto;}
+.communityWrap:after {display: block; clear: both; content: '';}
+.communityWrap > div {width: calc(100% * 0.95);}
+.communityWrap > div h2 {font-size: 16px; font-weight: 800;margin-bottom: 15px;}
+.communityWrap > div ul li {width: 100%; height: 60px; box-shadow: 0px 4px 20px 0px rgba(21, 21, 21, 0.1); background-color: #fff;}
+.communityWrap > div ul li:not(:last-of-type) {margin-bottom: 10px;}
+.communityWrap > div ul li a {display: flex; height: 100%; align-items: center; justify-content: space-between; padding: 0 20px; box-sizing: border-box;}
+.communityWrap > div ul li a span {font-size: 14px; font-weight: 800;}
+.communityWrap > div ul li a span strong {color: #0ba9b5;}
+
+.communityWrap > div.communityCont {float: right;}
+.communityWrap > div.communityCont ul li {border-top-left-radius: 30px; border-bottom-left-radius: 30px;}
+
+.communityWrap > div.myActiveCont {float: left; margin-top: 30px;}
+.communityWrap > div.myActiveCont h2 {margin-left: calc(100% * 0.05);}
+.communityWrap > div.myActiveCont ul li {border-top-right-radius: 30px; border-bottom-right-radius: 30px;}
+
+
+
+
 
 
 

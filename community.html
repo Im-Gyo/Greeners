@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,9 +17,9 @@
                 <!-- 헤더 초기값 -->
                 <div class="headType defaultHead">
                     <div class="backPageBtn">
-                        <!-- <button type="button" class="resetbtn" id="backPage">
+                        <button type="button" class="resetbtn" id="backPage">
                             <img src="./img/back_icon.png" alt="뒤로가기">
-                        </button> -->
+                        </button>
                     </div>
                     <h1>
                         <a href="/">
@@ -83,114 +83,113 @@
                     </nav>
                 </div>
             </header>
-            <section class="headonWrap mainWrap">
-                <!-- 이벤트 및 뉴스 -->
-                <div class="slideWrap">
-                    <ul class="noticeList">
-    
+
+            <section class="headonWrap communityWrap">
+                <div class="communityCont">
+                    <h2>게시판</h2>
+                    <ul>
+
                     </ul>
                 </div>
 
-                <!-- 마이포인트 -->
-                <div class="myPointBox">
-                    <span class="boxHead"><strong>MY</strong> 포인트</span>
-                    <span class="mypoint">3000</span>
-                </div>
+                <div class="myActiveCont">
+                    <h2>나의 활동</h2>
+                    <ul>
 
-                <!-- 페이지 이동 -->
-                <ul class="goPageList">
-                    <li>
-                        <a href="">
-                            <div class="listhead">
-                                <h3>정원 가기</h3>
-                                <span>Go to garden</span>
-                            </div>
-                            <div class="goingPageIcon">
-                                <img src="./img/next_white_icon.png" alt="바로가기">
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="listhead">
-                                <h3>커뮤니티</h3>
-                                <span>Comunity</span>
-                            </div>
-                            <div class="goingPageIcon">
-                                <img src="./img/next_white_icon.png" alt="바로가기">
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="listhead">
-                                <h3>씨앗 뽑기</h3>
-                                <span>Picking Seeds</span>
-                            </div>
-                            <div class="goingPageIcon">
-                                <img src="./img/next_white_icon.png" alt="바로가기">
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="listhead">
-                                <h3>주간 랭킹</h3>
-                                <span>Weekly Ranking</span>
-                            </div>
-                            <div class="goingPageIcon">
-                                <img src="./img/next_white_icon.png" alt="바로가기">
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+                    </ul>
+                </div>
             </section>
         </div>
     </div>
 
     <script src="./js/frontEvent.js"></script>
     <script>
-        //배너 객체
-        var bannerObj =
+        //게시판 객체
+        var communityObj =
         [
             {
-                link: '',
-                img: './img/banner/banner0.png'
+                title: '자유',
+                link: ''
             },
             {
-                link: '',
-                img: './img/banner/banner1.png'
+                title: '제품 리뷰',
+                link: 'border.html'
             },
             {
-                link: '',
-                img: './img/banner/banner2.png'
+                title: '정원 공유',
+                link: ''
+            },
+            {
+                title: '친환경 정보',
+                link: ''
+            },
+            {
+                title: 'HOT',
+                link: ''
+            }
+        ]
+
+        //나의활동 객체
+        var myActiveObj =
+        [
+            {
+                title: '내가 쓴 글',
+                link: ''
+            },
+            {
+                title: '댓글 내역',
+                link: ''
+            },
+            {
+                title: '스크랩 목록',
+                link: ''
             },
         ]
 
-        //배너 탬플릿
-        function bannerHtml(link,img,i)
+        //게시판폼
+        function communityForm(title,link)
         {
             var html =
             '<li>'+
             '<a href="'+link+'">'+
-            '<img src="'+img+'" alt="banner'+i+'">'+
+            '<span><strong>'+title+'</strong> 게시판</span>'+
+            '<div class="goingRightIcon">'+
+            '<img src="./img/next_white_icon.png" alt="바로가기">'+
+            '</div>'+
             '</a>'+
             '</li>';
             return html;
         }
 
-        for (var i = 0; i < bannerObj.length; i++)
+        //나의활동폼
+        function myActiveForm(title,link)
         {
-            if(bannerObj[i].link == '')
-            {
-                bannerObj[i].link = 'javascript:void(0)';
-            }
-            var html = bannerHtml(bannerObj[i].link,bannerObj[i].img,i)
-            $('.noticeList').append(html)
+            var html = 
+            '<li>'+
+            '<a href="'+link+'">'+
+            '<div class="goingLeftIcon">'+
+            '<img src="./img/back_white_icon.png" alt="바로가기">'+
+            '</div>'+
+            '<span><strong>'+title+'</strong> 보러가기</span>'+
+            '</a>'+
+            '</li>';
+            return html;
         }
 
-        //슬라이드 부모 width 자동계산
-        $('.noticeList').css('width',($('.noticeList li').width() * bannerObj.length) + (30 + (10 * (bannerObj.length - 1))))
+        //게시판 생성
+        for(var i=0; i<communityObj.length; i++)
+        {
+            var html = communityForm(communityObj[i].title,communityObj[i].link);
+
+            $('.communityCont ul').append(html);
+        }
+
+        //나의활동 생성
+        for(var i=0; i<myActiveObj.length; i++)
+        {
+            var html = myActiveForm(myActiveObj[i].title,myActiveObj[i].link)
+            $('.myActiveCont ul').append(html);
+        }
     </script>
 </body>
 </html>
