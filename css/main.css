@@ -40,15 +40,15 @@
 .popupWrap .popupCont ul li h3 { font-size: 16px; font-weight: 800; margin-bottom: 10px;}
 .popupWrap .popupCont ul li p {font-size: 12px; font-weight: 400; line-height: 16px; color: #333;}
 
-/* 메인 */
-.mainWrap {position: relative;height: 100%; background: url('../img/mainBg.png') no-repeat bottom center; background-size: contain;}
-.mainWrap .mainCont h1 {display: flex;justify-content: center; align-items: center; height: calc(100vh - 175px);}
-.mainWrap .mainCont .mainBtnBox {width: 290px; margin: 0 auto;}
-.mainWrap .mainCont .mainBtnBox button{ width: 100%; height: 50px; border-radius: 25px; color: #fff;}
-.mainWrap .mainCont .mainBtnBox button#gmarkCode {background-color: #2bb673;margin-bottom: 15px;}
-.mainWrap .mainCont .mainBtnBox button#goMain {background-color: #0ba9b5;}
-.mainWrap .mainCont .mainBtnBox button img {vertical-align: middle;margin-top: -4px; margin-right: 8px;}
-.mainWrap .mainCont .mainBtnBox button span {font-size: 14px; font-weight: 600;}
+/* 초기페이지 */
+.indexWrap {position: relative;height: 100%; background: url('../img/mainBg.png') no-repeat bottom center; background-size: contain;}
+.indexWrap .mainCont h1 {display: flex;justify-content: center; align-items: center; height: calc(100vh - 175px);}
+.indexWrap .mainCont .mainBtnBox {width: 290px; margin: 0 auto;}
+.indexWrap .mainCont .mainBtnBox button{ width: 100%; height: 50px; border-radius: 25px; color: #fff;}
+.indexWrap .mainCont .mainBtnBox button#gmarkCode {background-color: #2bb673;margin-bottom: 15px;}
+.indexWrap .mainCont .mainBtnBox button#goMain {background-color: #0ba9b5;}
+.indexWrap .mainCont .mainBtnBox button img {vertical-align: middle;margin-top: -4px; margin-right: 8px;}
+.indexWrap .mainCont .mainBtnBox button span {font-size: 14px; font-weight: 600;}
 
 /* g마크 인증후 로그인 안했을때 beforePoint.hmtl */
 .pointWrap {height: 100%; padding: 50px 0;}
@@ -86,7 +86,83 @@
 .loginWrap .loginCont .loginBox button#naverLogin {background-color: #00bf18; color: #fff;}
 .loginWrap .loginCont .signupBox button#signupBtn {background-color: #f7f7f7;}
 
+/* 포인트 적립완료 */
+.pointCompleteWrap {position: relative; height: 100vh; background: url('../img/lgoinBg.png') no-repeat center top 30px; background-size: contain;}
+.pointCompleteWrap .pointCont {position: absolute; left: 0; bottom: 0; width: 100%; padding-top: 50px; height: calc(100vh  - 80px); border-top-left-radius: 19px; border-top-right-radius: 19px; background: url('../img/seedBagBg.png') no-repeat center center #fff; background-size: 108%; box-sizing: border-box;}
+.pointCompleteWrap .pointCont .pointBox {height: calc(100% - 165px); text-align: center;}
+.pointCompleteWrap .pointCont .pointBox span{display: block; font-size: 16px; font-weight: 500; line-height: 18px; word-break: keep-all;}
+.pointCompleteWrap .pointCont .pointBox span .pointNumber {font-size: 36px; font-weight: 800; vertical-align: middle;}
+.pointCompleteWrap .pointCont .btnBox {width: 290px; margin: 0 auto;}
+.pointCompleteWrap .pointCont .btnBox button{position: relative; width: 100%; height: 50px; border-radius: 25px; font-size: 14px; font-weight: 600; box-shadow: 0px 4px 10px 0px rgba(21, 21, 21, 0.2); color: #fff;}
+.pointCompleteWrap .pointCont .btnBox button img{vertical-align: middle;margin-top: -4px; margin-right: 8px;}
+.pointCompleteWrap .pointCont .btnBox button#earnings{background-color: #2bb673;margin-bottom: 15px;}
+.pointCompleteWrap .pointCont .btnBox button#goMain{background-color: #0ba9b5;}
 
+/* 헤더 */
+.mainHeader {position: relative; height: 65px; box-shadow: 0px 4px 20px 0px rgba(21, 21, 21, 0.1);}
+.mainHeader .headType {height: 100%; padding: 0 15px; box-sizing: border-box;}
+
+.mainHeader .headType.defaultHead {display: flex; align-items: center; justify-content: space-between;}
+.mainHeader .headType.defaultHead .backPageBtn {width: 55px; height: 100%;}
+.mainHeader .headType.defaultHead .backPageBtn button#backPage{height: 100%;}
+.mainHeader .headType.defaultHead h1 {display: flex; align-items: center; width: 102px;}
+.mainHeader .headType.defaultHead h1 a {display: block;}
+.mainHeader .headType.defaultHead h1 a img {display: block; width: 100%;}
+.mainHeader .headType.defaultHead .headerBtn{height: 100%;}
+.mainHeader .headType.defaultHead .headerBtn button {height: 100%;}
+.mainHeader .headType.defaultHead .headerBtn button img {display: block;}
+.mainHeader .headType.defaultHead .headerBtn button#searchActive {margin-right: 15px;}
+.mainHeader .headType.defaultHead .headerBtn button#menuActive .open{display: block;}
+.mainHeader .headType.defaultHead .headerBtn button#menuActive .close{display: none;}
+
+.mainHeader .headMenu {position: absolute; top: 65px; left: 0; width: 100%; height: calc(100vh - 65px); background-color: rgba(0, 0, 0, 0.5); z-index: 100; overflow: hidden; transition: 0.3s; opacity: 0; visibility: hidden;}
+.mainHeader .headMenu nav {float: right; width: calc(100% * 0.7); height: 100%; background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%); transition: 0.3s; transform: translateX(100%);}
+.mainHeader .headMenu nav ul {padding: 15px 0;}
+.mainHeader .headMenu nav ul li {padding: 15px 20px;}
+.mainHeader .headMenu nav ul li a {display: block;}
+.mainHeader .headMenu nav ul li a span {font-size: 16px; font-weight: 600; color: #fff;}
+
+.mainHeader.menuOn .headType.defaultHead .headerBtn button#menuActive .open{display: none;}
+.mainHeader.menuOn .headType.defaultHead .headerBtn button#menuActive .close{display: block;}
+.mainHeader.menuOn .headMenu {opacity: 1; visibility: visible;}
+.mainHeader.menuOn .headMenu nav {transform: translateX(0);}
+
+.mainHeader .headType.searchHead {position: absolute; top: 0; left: 0; width: 0%; background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%); opacity: 0; visibility: hidden; transition: 0.2s; z-index: 2;}
+.mainHeader .headType.searchHead.active {width: 100%; ; opacity: 1; visibility: visible;}
+.mainHeader .headType.searchHead .searchBox {position: relative; display: flex; align-items: center; height: 100%; box-sizing: border-box;}
+.mainHeader .headType.searchHead .searchBox label {position: relative; display: block; width: calc(100% - 33px); height: 42px; margin-right: 15px; border-radius: 21px;}
+.mainHeader .headType.searchHead .searchBox label input {display: block; width: 100%; height: 100%; padding: 0 55px 0 21px; background-color: #fff; border-radius: inherit; box-sizing: border-box; font-size: 14px;}
+.mainHeader .headType.searchHead .searchBox label input::placeholder {color: #999;}
+.mainHeader .headType.searchHead .searchBox label button#searchBtn {position: absolute; height: 100%; top: 50%; right: 21px; transform: translateY(-50%);}
+.mainHeader .headType.searchHead .searchBox button#searchCloseBtn {height: 100%;}
+
+/* 메인 */
+.mainWrap {height: calc(100vh - 65px); padding-top: 30px; padding-bottom: 75px; background: url('../img/mainBg2.png')no-repeat center bottom #fff; background-size: contain; box-sizing: border-box; overflow: auto;}
+.mainWrap .slideWrap {width: 100%; height: 220px; overflow: auto; -ms-overflow-style: none; scrollbar-width: none;}
+.mainWrap .slideWrap::-webkit-scrollbar {display: none;}
+.mainWrap .slideWrap ul.noticeList {}
+.mainWrap .slideWrap ul.noticeList::after {display: block; content: ''; clear: both;}
+.mainWrap .slideWrap ul.noticeList li{float: left; width: 155px; margin-right: 10px; box-shadow: 0px 4px 20px 0px rgba(21, 21, 21, 0.1);}
+.mainWrap .slideWrap ul.noticeList li:first-of-type {margin-left: 15px;}
+.mainWrap .slideWrap ul.noticeList li:last-of-type {margin-right: 15px;}
+.mainWrap .slideWrap ul.noticeList li a {display: block;}
+
+.mainWrap .myPointBox {display: flex; width: calc(100% - 30px); margin: 10px auto 30px; padding: 0 16px; align-items: center; justify-content: space-between; height: 50px; box-shadow: 0px 4px 20px 0px rgba(21, 21, 21, 0.1); box-sizing: border-box; border-radius: 10px; background-color: #fff;}
+.mainWrap .myPointBox span.boxHead {font-size: 16px; font-weight: 800;}
+.mainWrap .myPointBox span.boxHead strong {color: #0ba9b5;}
+.mainWrap .myPointBox span.mypoint {font-size: 14px; font-weight: 600;}
+.mainWrap .myPointBox span.mypoint:after {content: ' 포인트';}
+
+.mainWrap .goPageList {display: flex; flex-wrap: wrap; width: calc(100% - 30px); margin: 0 auto;}
+.mainWrap .goPageList li {width: calc(50% - 5px); height: 75px; padding: 0 15px; border-radius: 10px; background-color: #fff; box-sizing: border-box; box-shadow: 0px 4px 20px 0px rgba(21, 21, 21, 0.1);}
+.mainWrap .goPageList li:nth-of-type(n+3) {margin-top: 10px;}
+.mainWrap .goPageList li:nth-of-type(odd) {margin-right: 10px;}
+.mainWrap .goPageList li a {display: flex; height: 100%; align-items: center;}
+.mainWrap .goPageList li a .listhead {width: calc(100% - 30px);}
+.mainWrap .goPageList li a .listhead h3 {font-size: 14px; font-weight: 800; margin-bottom: 4px;}
+.mainWrap .goPageList li a .listhead span {display: block; font-size: 10px; font-weight: 800; line-height: 1;}
+.mainWrap .goPageList li a .goingPageIcon {position: relative; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%);}
+.mainWrap .goPageList li a .goingPageIcon img {position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
 
 
 
