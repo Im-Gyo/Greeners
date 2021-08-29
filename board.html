@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/xeicon.css">
     <script src="./js/jquery.js"></script>
 
     <title>greeners</title>
@@ -17,9 +18,9 @@
                 <!-- 헤더 초기값 -->
                 <div class="headType defaultHead">
                     <div class="backPageBtn">
-                        <!-- <button type="button" class="resetbtn" id="backPage">
+                        <button type="button" class="resetbtn" id="backPage">
                             <img src="./img/back_icon.png" alt="뒤로가기">
-                        </button> -->
+                        </button>
                     </div>
                     <h1>
                         <a href="/">
@@ -83,63 +84,34 @@
                     </nav>
                 </div>
             </header>
-            <section class="headonWrap mainWrap">
-                <!-- 이벤트 및 뉴스 -->
-                <div class="slideWrap">
-                    <ul class="noticeList">
-    
-                    </ul>
+
+            <section class="headonWrap boardWrap">
+                <div class="boardHead">
+                    <div class="boardTitle">
+                        <h2>제품 리뷰 게시판</h2>
+                        <a href="/boardWrite.html"> 
+                            <span class="gColor">글쓰기</span>
+                        </a>
+                    </div>
+                    <label>
+                        <input type="text" placeholder="검색어를 입력하세요">
+                        <button type="button" class="resetbtn" id="boardSeachBtn">
+                            <img src="./img/search_icon.png">
+                        </button>
+                    </label>
                 </div>
 
-                <!-- 마이포인트 -->
-                <div class="myPointBox">
-                    <span class="boxHead"><strong>MY</strong> 포인트</span>
-                    <span class="mypoint">3000</span>
-                </div>
-
-                <!-- 페이지 이동 -->
-                <ul class="goPageList">
+                <ul class="boardList">
                     <li>
                         <a href="">
-                            <div class="listhead">
-                                <h3>정원 가기</h3>
-                                <span>Go to garden</span>
-                            </div>
-                            <div class="goingPageIcon">
-                                <img src="./img/next_white_icon.png" alt="바로가기">
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="listhead">
-                                <h3>커뮤니티</h3>
-                                <span>Comunity</span>
-                            </div>
-                            <div class="goingPageIcon">
-                                <img src="./img/next_white_icon.png" alt="바로가기">
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="listhead">
-                                <h3>씨앗 뽑기</h3>
-                                <span>Picking Seeds</span>
-                            </div>
-                            <div class="goingPageIcon">
-                                <img src="./img/next_white_icon.png" alt="바로가기">
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="listhead">
-                                <h3>주간 랭킹</h3>
-                                <span>Weekly Ranking</span>
-                            </div>
-                            <div class="goingPageIcon">
-                                <img src="./img/next_white_icon.png" alt="바로가기">
+                            <h3>친환경 제품 추천합니다</h3>
+                            <p>
+                                내려온 품에 실로 위하여, 같으며, 맺어, 원질이 내는 이상 때문이다. 풀이 이는 뼈 황금시대다. 안고, 원질이 이 고행을 그들을 봄바람을 피고 끓는 듣는다. 예수는 인간에 곳으로 그들의 사막이다. 밥을 예수는 거선의 끓는다. 만물은 별과 뼈 몸이 시들어 속잎나고, 아니한 때문이다. 같은 아니더면, 천자만홍이 피가 청춘이 피다. 부패를 뭇 커다란 하였으며, 우리 대고, 그들의 봄바람이다. 때까지 있는 같이 커다란 없는 실로 할지라도 보는 인생에 때문이다.
+                            </p>
+                            <div class="listInfo">
+                                <span class="writeTime">5분전</span>
+                                <span class="iconNum likeNum">10</span>
+                                <span class="iconNum bookmarkNum">5</span>
                             </div>
                         </a>
                     </li>
@@ -150,47 +122,30 @@
 
     <script src="./js/frontEvent.js"></script>
     <script>
-        //배너 객체
-        var bannerObj =
-        [
-            {
-                link: '',
-                img: './img/banner/banner0.png'
-            },
-            {
-                link: '',
-                img: './img/banner/banner1.png'
-            },
-            {
-                link: '',
-                img: './img/banner/banner2.png'
-            },
-        ]
-
-        //배너 탬플릿
-        function bannerHtml(link,img,i)
+        //스크롤 테스트용입니다.
+        testList();
+        function testList()
         {
+            var testList = 10;
+
             var html =
             '<li>'+
-            '<a href="'+link+'">'+
-            '<img src="'+img+'" alt="banner'+i+'">'+
+            '<a href="">'+
+            '<h3>친환경 제품 추천합니다</h3>'+
+            '<p>내려온 품에 실로 위하여, 같으며, 맺어, 원질이 내는 이상 때문이다. 풀이 이는 뼈 황금시대다. 안고, 원질이 이 고행을 그들을 봄바람을 피고 끓는 듣는다. 예수는 인간에 곳으로 그들의 사막이다. 밥을 예수는 거선의 끓는다. 만물은 별과 뼈 몸이 시들어 속잎나고, 아니한 때문이다. 같은 아니더면, 천자만홍이 피가 청춘이 피다. 부패를 뭇 커다란 하였으며, 우리 대고, 그들의 봄바람이다. 때까지 있는 같이 커다란 없는 실로 할지라도 보는 인생에 때문이다.</p>'+
+            '<div class="listInfo">'+
+            '<span class="writeTime">5분전</span>'+
+            '<span class="iconNum likeNum">10</span>'+
+            '<span class="iconNum bookmarkNum">5</span>'+
+            '</div>'+
             '</a>'+
             '</li>';
-            return html;
-        }
 
-        for (var i = 0; i < bannerObj.length; i++)
-        {
-            if(bannerObj[i].link == '')
+            for (let i = 0; i < testList; i++)
             {
-                bannerObj[i].link = 'javascript:void(0)';
+                $('.boardList').append(html);
             }
-            var html = bannerHtml(bannerObj[i].link,bannerObj[i].img,i)
-            $('.noticeList').append(html)
         }
-
-        //슬라이드 부모 width 자동계산
-        $('.noticeList').css('width',($('.noticeList li').width() * bannerObj.length) + (30 + (10 * (bannerObj.length - 1))))
     </script>
 </body>
 </html>

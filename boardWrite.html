@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/xeicon.css">
     <script src="./js/jquery.js"></script>
 
     <title>greeners</title>
@@ -84,19 +85,37 @@
                 </div>
             </header>
 
-            <section class="headonWrap communityWrap">
-                <div class="communityCont">
-                    <h2>게시판</h2>
-                    <ul>
+            <section class="headonWrap boardWriteWrap">
+                <h2>글쓰기</h2>
+                <form>
+                    <fieldset>
+                        <input type="text" name="" id="" placeholder="제목을 입력하세요">
+                        <textarea name="" id="" cols="30" rows="10" placeholder="내용을 입력해주세요"></textarea>
 
-                    </ul>
-                </div>
+                        <div class="fileUpload">
+                            <input type="file" name="fileInput">
+                            <button type="button" class="resetbtn">사진 첨부하기</button>
+                        </div>
+                    </fieldset>
+                </form>
 
-                <div class="myActiveCont">
-                    <h2>나의 활동</h2>
-                    <ul>
+                <ul>
+                    <li>
+                        <button type="button" class="resetbtn closeFile">
+                            <img src="./img/close_white_icon.png">
+                        </button>
+                        <img src="">
+                    </li>
+                </ul>
 
-                    </ul>
+                <div class="">
+                    <p>
+                        커뮤니티는 개인정보 및 사생활 보호를 위해 익명으로 진행됩니다.
+                        타인의 권리 침해, 비방, 사칭, 허위, 음란물 유포 등의 부적절한 행위
+                        가 포함된 게시물은 신고 대상이며 게시물 자동 삭제 및 커뮤니티 이
+                        용 제한 대상이 될 수 있습니다.
+                    </p>
+                    <button type="button" class="resetbtn submitBtn">글 등록하기</button>
                 </div>
             </section>
         </div>
@@ -104,92 +123,7 @@
 
     <script src="./js/frontEvent.js"></script>
     <script>
-        //게시판 객체
-        var communityObj =
-        [
-            {
-                title: '자유',
-                link: ''
-            },
-            {
-                title: '제품 리뷰',
-                link: 'border.html'
-            },
-            {
-                title: '정원 공유',
-                link: ''
-            },
-            {
-                title: '친환경 정보',
-                link: ''
-            },
-            {
-                title: 'HOT',
-                link: ''
-            }
-        ]
 
-        //나의활동 객체
-        var myActiveObj =
-        [
-            {
-                title: '내가 쓴 글',
-                link: ''
-            },
-            {
-                title: '댓글 내역',
-                link: ''
-            },
-            {
-                title: '스크랩 목록',
-                link: ''
-            },
-        ]
-
-        //게시판폼
-        function communityForm(title,link)
-        {
-            var html =
-            '<li>'+
-            '<a href="'+link+'">'+
-            '<span><strong>'+title+'</strong> 게시판</span>'+
-            '<div class="goingRightIcon">'+
-            '<img src="./img/next_white_icon.png" alt="바로가기">'+
-            '</div>'+
-            '</a>'+
-            '</li>';
-            return html;
-        }
-
-        //나의활동폼
-        function myActiveForm(title,link)
-        {
-            var html = 
-            '<li>'+
-            '<a href="'+link+'">'+
-            '<div class="goingLeftIcon">'+
-            '<img src="./img/back_white_icon.png" alt="바로가기">'+
-            '</div>'+
-            '<span><strong>'+title+'</strong> 보러가기</span>'+
-            '</a>'+
-            '</li>';
-            return html;
-        }
-
-        //게시판 생성
-        for(var i=0; i<communityObj.length; i++)
-        {
-            var html = communityForm(communityObj[i].title,communityObj[i].link);
-
-            $('.communityCont ul').append(html);
-        }
-
-        //나의활동 생성
-        for(var i=0; i<myActiveObj.length; i++)
-        {
-            var html = myActiveForm(myActiveObj[i].title,myActiveObj[i].link)
-            $('.myActiveCont ul').append(html);
-        }
     </script>
 </body>
 </html>
