@@ -1,0 +1,11 @@
+{
+    "dbInfo" : {        
+        "host" : "34.64.93.45",
+        "user" : "greeners",
+        "password" : "Gr!eeners123",
+        "database" : "greeners",
+        "port" : "3306",
+        "charset": "utf8mb4",
+        "collate": "utf8mb4_general_ci"
+    }
+}
