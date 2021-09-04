@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/xeicon.css">
     <script src="./js/jquery.js"></script>
 
     <title>greeners</title>
@@ -17,9 +18,9 @@
                 <!-- 헤더 초기값 -->
                 <div class="headType defaultHead">
                     <div class="backPageBtn">
-                        <!-- <button type="button" class="resetbtn" id="backPage">
+                        <button type="button" class="resetbtn" id="backPage">
                             <img src="./img/back_icon.png" alt="뒤로가기">
-                        </button> -->
+                        </button>
                     </div>
                     <h1>
                         <a href="/">
@@ -83,114 +84,72 @@
                     </nav>
                 </div>
             </header>
-            <section class="headonWrap mainWrap">
-                <!-- 이벤트 및 뉴스 -->
+
+            <section class="headonWrap boardWriteWrap">
+                <h2>글쓰기</h2>
+                <form>
+                    <fieldset>
+                        <input type="text" name="" id="" placeholder="제목을 입력하세요">
+                        <textarea name="" id="" cols="30" rows="10" placeholder="내용을 입력해주세요"></textarea>
+
+                        <div class="fileUpload">
+                            <input type="file" name="fileInput" id="imageUpload">
+                            <button type="button" class="resetbtn">
+                                <span class="gColor">사진 첨부하기</span>
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+
                 <div class="slideWrap">
-                    <ul class="noticeList">
-    
+                    <ul>
+
                     </ul>
                 </div>
 
-                <!-- 마이포인트 -->
-                <div class="myPointBox">
-                    <span class="boxHead"><strong>MY</strong> 포인트</span>
-                    <span class="mypoint">3000</span>
+                <div class="boardNotice">
+                    <p>
+                        커뮤니티는 개인정보 및 사생활 보호를 위해 익명으로 진행됩니다.<br>
+                        타인의 권리 침해, 비방, 사칭, 허위, 음란물 유포 등의 부적절한 행위가 포함된 게시물은 신고 대상이며 게시물 자동 삭제 및 커뮤니티 이용 제한 대상이 될 수 있습니다.
+                    </p>
+                    <button type="button" class="resetbtn submitBtn">글 등록하기</button>
                 </div>
-
-                <!-- 페이지 이동 -->
-                <ul class="goPageList">
-                    <li>
-                        <a href="">
-                            <div class="listhead">
-                                <h3>정원 가기</h3>
-                                <span>Go to garden</span>
-                            </div>
-                            <div class="goingPageIcon">
-                                <img src="./img/next_white_icon.png" alt="바로가기">
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="listhead">
-                                <h3>커뮤니티</h3>
-                                <span>Comunity</span>
-                            </div>
-                            <div class="goingPageIcon">
-                                <img src="./img/next_white_icon.png" alt="바로가기">
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="listhead">
-                                <h3>씨앗 뽑기</h3>
-                                <span>Picking Seeds</span>
-                            </div>
-                            <div class="goingPageIcon">
-                                <img src="./img/next_white_icon.png" alt="바로가기">
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="listhead">
-                                <h3>주간 랭킹</h3>
-                                <span>Weekly Ranking</span>
-                            </div>
-                            <div class="goingPageIcon">
-                                <img src="./img/next_white_icon.png" alt="바로가기">
-                            </div>
-                        </a>
-                    </li>
-                </ul>
             </section>
         </div>
     </div>
 
     <script src="./js/frontEvent.js"></script>
     <script>
-        //배너 객체
-        var bannerObj =
-        [
-            {
-                link: '',
-                img: './img/banner/banner0.png'
-            },
-            {
-                link: '',
-                img: './img/banner/banner1.png'
-            },
-            {
-                link: '',
-                img: './img/banner/banner2.png'
-            },
-        ]
-
-        //배너 탬플릿
-        function bannerHtml(link,img,i)
+        //사진 첨부 리스트 폼
+        function imageForm(img)
         {
-            var html =
+            var html = 
             '<li>'+
-            '<a href="'+link+'">'+
-            '<img src="'+img+'" alt="banner'+i+'">'+
-            '</a>'+
+            '<button type="button" class="resetbtn closeFile">'+
+            '<img src="./img/close_white_icon.png">'+
+            '</button>'+
+            '<img src="'+img+'">'+
             '</li>';
             return html;
         }
 
-        for (var i = 0; i < bannerObj.length; i++)
+        $(document).on('click','.closeFile',function()
         {
-            if(bannerObj[i].link == '')
-            {
-                bannerObj[i].link = 'javascript:void(0)';
-            }
-            var html = bannerHtml(bannerObj[i].link,bannerObj[i].img,i)
-            $('.noticeList').append(html)
-        }
+            $(this).closest('li').remove();
+        });
 
-        //슬라이드 부모 width 자동계산
-        $('.noticeList').css('width',($('.noticeList li').width() * bannerObj.length) + (30 + (10 * (bannerObj.length - 1))))
+        $('#imageUpload').on('change',function(e)
+        {
+            var wrap = $('.slideWrap ul');
+            var list = $('.slideWrap ul li');
+            var src = ''; //이미지 파일
+
+            wrap.append(imageForm(src));
+
+            wrap.css('width',60 * (list.length + 1) + (10 * (list.length)));
+
+            e.target.value = ''; //동일파일 업로드 가능
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/xeicon.css">
+    <script src="./js/jquery.js"></script>
+
+    <title>greeners</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="appWrap">
+            <header class="mainHeader">
+                <!-- 헤더 초기값 -->
+                <div class="headType defaultHead">
+                    <div class="backPageBtn">
+                        <button type="button" class="resetbtn" id="backPage">
+                            <img src="./img/back_icon.png" alt="뒤로가기">
+                        </button>
+                    </div>
+                    <h1>
+                        <a href="/">
+                            <img src="./img/mainLogo.png" alt="mainLogo">
+                        </a>
+                    </h1>
+                    <div class="headerBtn">
+                        <button class="resetbtn" id="searchActive">
+                            <img src="./img/search_icon.png" alt="검색">
+                        </button>
+                        <button class="resetbtn" id="menuActive">
+                            <img class="open" src="./img/ham_icon.png" alt="메뉴">
+                            <img class="close" src="./img/close_color_icon.png" alt="닫기">
+                        </button> 
+                    </div>
+                </div>
+                <!-- 검색 헤더바 -->
+                <div class="headType searchHead">
+                    <div class="searchBox">
+                        <label>
+                            <input type="text" name="headSearch" id="headSearch" value="" placeholder="검색어를 입력하세요.">
+                            <button class="resetbtn" id="searchBtn">
+                                <img src="./img/search_icon.png">
+                            </button>
+                        </label>
+                        <button type="button" class="resetbtn" id="searchCloseBtn">
+                            <img src="./img/close_white_icon.png">
+                        </button>
+                    </div>
+                </div>
+                <!-- 헤더 햄버거 메뉴 -->
+                <div class="headMenu">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="/">
+                                    <span>마이페이지</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    <span>환경설정</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    <span>계정관리</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    <span>도움말</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    <span>SNS 공유</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <section class="boardReadWrap">
+                <!-- 보더내용 헤더 -->
+                <div class="readHead">
+                    <!-- 유저 프로필 -->
+                    <div class="userInfo">
+                        <div class="userImg">
+                            <img src="">
+                        </div>
+                        <div class="userTitle">
+                            <p class="userName">홍길동</p>
+                            <p class="writeTime">5분전</p>
+                        </div>
+                    </div>
+                    <div class="scrapBox">
+                        <button type="button" class="resetbtn" name="" id="empathizeBtn">
+                            <span class="gColor">공감</span>
+                        </button>
+                        <button type="button" class="resetbtn" name="" id="scrapBtn">
+                            <span class="gColor">스크랩</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- 보더내용 영역 -->
+                <div class="readCont">
+                    <div class="readEdit">
+                        <!-- 제목 -->
+                        <h3 class="contTitle">친환경 제품을 소개합니다.</h3>
+                        <!-- 내용 -->
+                        <p class="contText">
+                            끓는 우리의 위하여 속에서 용기가 살았으며, 따뜻한 내려온 하는 것이다. 심장은 위하여 별과 황금시대다. 끓는 가치를 이상을 얼마나 오아이스도 위하여서 사막이다. 대고, 청춘의 끓는 철환하였는가? 곳이 소리다.이것은 튼튼하며, 사라지지 칼이다. 부패를 몸이 인생에 이것이다. 그들은 발휘하기 속에 살 그들의 꽃이 사람은 얼마나 부패뿐이다. 발휘하기 청춘의 보는 튼튼하며, 보배를 보이는 끓는다. 같으며, 끝에 목숨이 위하여서. 예가 일월과 듣기만 있는 힘있다. 쓸쓸한 속잎나고, 새가 그리하였는가?
+                        </p>
+                        <!-- 이미지 -->
+                        <img src="./img/banner/banner0.png">
+                    </div>
+                    <!-- 좋아요,즐겨찾기,댓글 영역 -->
+                    <div class="readInfo">
+                        <span class="like">10</span>
+                        <span class="bookmark">10</span>
+                        <span class="commentNum">10</span>
+                    </div>
+                </div>
+                <!-- 댓글 영역 -->
+                <div class="readCommentCont">
+                    <!-- 댓글내용들 -->
+                    <div class="">
+                        <!-- 기본댓글 -->
+                        <div class="basicComment">
+                            <div class="">
+                                <div class="userInfo">
+                                    <div class="userImg">
+                                        <img src="" alt="유저이미지">
+                                    </div>
+                                    <div class="userTitle">
+                                        <p class="userName">홍길동</p>
+                                    </div>
+                                </div>
+                                <div class="userState">
+                                    <span class="commentLike">10</span>
+                                    <span class="replyNum">10</span>
+                                </div>
+                            </div>
+                            <p class="textForm basicText">
+                                가나다라마바사아자차카타파하
+                            </p>
+                            <button type="createReply">답글쓰기</button>
+                            <ul class="replyList">
+                                <!-- 답글 작성폼 *무조건 최상단-->
+                                <li class="replyEmpty">
+                                    <textarea class="commentTextForm" maxlength="300"></textarea>
+                                    <button type="button" class="resetbtn commentSubmit">등록</button>
+                                </li>
+                                <!-- 답글 리스트 -->
+                                <li class="replyBox">
+                                    <div class="userInfo">
+                                        <div class="userImg">
+                                            <img src="" alt="유저이미지">
+                                        </div>
+                                        <div class="userTitle">
+                                            <p class="userName">홍길동</p>
+                                        </div>
+                                    </div>
+                                    <p class="textForm replyText">
+                                        공감꾸욱
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 댓글 작성폼 -->
+                    <div class="commentEmpty">
+                        <textarea class="commentTextForm" maxlength="300"></textarea>
+                        <button type="button" class="resetbtn commentSubmit">등록</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
