@@ -93,27 +93,24 @@
                         <textarea name="" id="" cols="30" rows="10" placeholder="내용을 입력해주세요"></textarea>
 
                         <div class="fileUpload">
-                            <input type="file" name="fileInput">
-                            <button type="button" class="resetbtn">사진 첨부하기</button>
+                            <input type="file" name="fileInput" id="imageUpload">
+                            <button type="button" class="resetbtn">
+                                <span class="gColor">사진 첨부하기</span>
+                            </button>
                         </div>
                     </fieldset>
                 </form>
 
-                <ul>
-                    <li>
-                        <button type="button" class="resetbtn closeFile">
-                            <img src="./img/close_white_icon.png">
-                        </button>
-                        <img src="">
-                    </li>
-                </ul>
+                <div class="slideWrap">
+                    <ul>
 
-                <div class="">
+                    </ul>
+                </div>
+
+                <div class="boardNotice">
                     <p>
-                        커뮤니티는 개인정보 및 사생활 보호를 위해 익명으로 진행됩니다.
-                        타인의 권리 침해, 비방, 사칭, 허위, 음란물 유포 등의 부적절한 행위
-                        가 포함된 게시물은 신고 대상이며 게시물 자동 삭제 및 커뮤니티 이
-                        용 제한 대상이 될 수 있습니다.
+                        커뮤니티는 개인정보 및 사생활 보호를 위해 익명으로 진행됩니다.<br>
+                        타인의 권리 침해, 비방, 사칭, 허위, 음란물 유포 등의 부적절한 행위가 포함된 게시물은 신고 대상이며 게시물 자동 삭제 및 커뮤니티 이용 제한 대상이 될 수 있습니다.
                     </p>
                     <button type="button" class="resetbtn submitBtn">글 등록하기</button>
                 </div>
@@ -123,7 +120,36 @@
 
     <script src="./js/frontEvent.js"></script>
     <script>
+        //사진 첨부 리스트 폼
+        function imageForm(img)
+        {
+            var html = 
+            '<li>'+
+            '<button type="button" class="resetbtn closeFile">'+
+            '<img src="./img/close_white_icon.png">'+
+            '</button>'+
+            '<img src="'+img+'">'+
+            '</li>';
+            return html;
+        }
 
+        $(document).on('click','.closeFile',function()
+        {
+            $(this).closest('li').remove();
+        });
+
+        $('#imageUpload').on('change',function(e)
+        {
+            var wrap = $('.slideWrap ul');
+            var list = $('.slideWrap ul li');
+            var src = ''; //이미지 파일
+
+            wrap.append(imageForm(src));
+
+            wrap.css('width',60 * (list.length + 1) + (10 * (list.length)));
+
+            e.target.value = ''; //동일파일 업로드 가능
+        });
     </script>
 </body>
 </html>
