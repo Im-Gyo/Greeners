@@ -6,19 +6,47 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const http = require('http');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const session = require('express-session');
+
+const passportConfig = require('./passport');
 const api = require('./routes/api.js');
 const protocolC = require('./routes/protocolC');
+const auth = require('./routes/auth.js');
 const { fstat } = require('fs');
+
 const app = express();
 const server = http.createServer(app);
+passportConfig();
+
+app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/client'));
-app.use(cookieParser())
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+app.use(session({
+    resave : false,
+    saveUninitialized : false,
+    secret : 'sample',
+    cookie : {
+        httpOnly : true,
+        secure : false
+    },
+}));
+/*
+passport.initialize() : req객체에 passport 설정을 심음.
+passport.session() : req.session객체에 passport정보를 저장. req.session은 express-session에서 생성하는것이므로
+                     express-session 미들웨어보다 뒤에 연결애햐 함.
+*/
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 //라우트로 분리
 app.use('/', api);
 app.use('/protocolC', protocolC);
+app.use('/auth', auth);
 
 //잘못된 호출이나 파라미터로 서버 종료문제 잡는 곳
 process.on('uncaughtException', function(err){
@@ -43,7 +71,7 @@ app.use(function(err, req, res, next){
     let jsonObject = {};
     jsonObject['resultCode'] = 500;
     jsonObject['resultData'] = {};
-    res.status(err.status || 500).json(jsonObject);
+    //res.status(err.status || 500).json(jsonObject);
 })
 
 var port = 5000;

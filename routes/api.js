@@ -5,10 +5,14 @@ const commonUtil = require('../util/commonUtil');
 const db_info = require('../config/config');
 const dbPool = mysql.createPool(db_info);
 
-// 메인 페이지
-router.all('/', (req, res, next) => {
+//메인 페이지
+router.get('/', (req, res, next) => {
     res.render('index.html', {req: req});
 })
+
+router.all('/mypage',  (req, res) => {
+    res.render('mypage_sample.html', {req: req});
+});
 
 //샘플
 router.get("/sample", function(req, res){
