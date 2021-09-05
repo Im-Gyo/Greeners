@@ -120,10 +120,14 @@
 
 .mainHeader .headMenu {position: absolute; top: 65px; left: 0; width: 100%; height: calc(100vh - 65px); background-color: rgba(0, 0, 0, 0.5); z-index: 100; overflow: hidden; transition: 0.3s; opacity: 0; visibility: hidden;}
 .mainHeader .headMenu nav {float: right; width: calc(100% * 0.7); height: 100%; background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%); transition: 0.3s; transform: translateX(100%);}
-.mainHeader .headMenu nav ul {padding: 15px 0;}
-.mainHeader .headMenu nav ul li {padding: 15px 20px;}
-.mainHeader .headMenu nav ul li a {display: block;}
-.mainHeader .headMenu nav ul li a span {font-size: 16px; font-weight: 600; color: #fff;}
+.mainHeader .headMenu nav > ul {padding: 15px 0;}
+.mainHeader .headMenu nav > ul > li {padding: 15px 20px;}
+.mainHeader .headMenu nav > ul > li a {display: block;}
+.mainHeader .headMenu nav > ul > li a span {font-size: 16px; font-weight: 600; color: #fff;}
+.mainHeader .headMenu nav > ul > li > ul {display: none;}
+.mainHeader .headMenu nav > ul > li > ul > li { padding: 7.5px 0;}
+.mainHeader .headMenu nav > ul > li > ul > li a {font-size: 14px; color: rgba(255, 255, 255, 0.5);}
+
 
 .mainHeader.menuOn .headType.defaultHead .headerBtn button#menuActive .open{display: none;}
 .mainHeader.menuOn .headType.defaultHead .headerBtn button#menuActive .close{display: block;}
@@ -238,11 +242,11 @@
 .boardReadWrap .readHead {display: flex; align-items: center; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #ddd;}
 /* 공통 프로필 */
 .boardReadWrap .userInfo {display: flex; align-items: center;}
-.boardReadWrap .userInfo .userImg {width: 35px; height: 35px; background-color: red; border-radius: 50%;}
+.boardReadWrap .userInfo .userImg {width: 36px; height: 36px; border-radius: 50%;}
 .boardReadWrap .userInfo .userImg img {display: block; object-fit: cover;}
 .boardReadWrap .userInfo .userTitle {margin-left: 6px;}
-.boardReadWrap .userInfo .userTitle .userName { margin-bottom: 6px; font-size: 12px; font-weight: 600; color: #151515;}
-.boardReadWrap .userInfo .userTitle .writeTime {font-size: 10px; font-weight: 600; color: #999;}
+.boardReadWrap .userInfo .userTitle .userName { font-size: 12px; font-weight: 600; color: #151515;}
+.boardReadWrap .userInfo .userTitle .writeTime {margin-top: 5px; font-size: 10px; font-weight: 600; color: #999;}
 /* --- */
 .boardReadWrap .readHead .scrapBox button{height: 20px; font-size: 10px; font-weight: 600; border-radius: 5px; background-image: linear-gradient(#fff, #fff), linear-gradient(to right, rgba(43,182,115,1), rgba(11,169,181,1)); border: 1px solid transparent; background-clip: content-box,border-box; background-origin: border-box;}
 .boardReadWrap .readHead .scrapBox button#empathizeBtn {width: 54px; margin-right: 2px;}
@@ -250,16 +254,64 @@
 .boardReadWrap .readHead .scrapBox button span::before {margin-right: 5px; vertical-align: middle; font-family: 'xeicon'; color: #1aaf97;}
 .boardReadWrap .readHead .scrapBox button#empathizeBtn span::before {content: "\ea10";}
 .boardReadWrap .readHead .scrapBox button#scrapBtn span::before {content: "\ea0f";}
-
 .boardReadWrap .readCont {padding: 25px 0 15px; border-bottom: 1px solid #eaeaea;}
 .boardReadWrap .readCont .readEdit h3{margin-bottom: 12px; font-size: 16px; font-weight: 800; color: #151515;}
 .boardReadWrap .readCont .readEdit p {margin-bottom: 12px; font-size: 12px; line-height: 16px; color: #666; word-break: keep-all;}
 .boardReadWrap .readCont .readEdit img {display: block; max-width: 100%; margin-bottom: 12px;}
 .boardReadWrap .readCont .readInfo span {font-size: 12px; color: #151515;}
-.boardReadWrap .readCont .readInfo span::before {font-family: 'xeicon'; color: #1aaf97;}
+.boardReadWrap .readCont .readInfo span:not(:last-of-type) {margin-right: 10px;}
+.boardReadWrap .readCont .readInfo span::before {margin-right: 3px; font-family: 'xeicon'; color: #1aaf97;}
 .boardReadWrap .readCont .readInfo span.like::before {content: '\ea10';}
 .boardReadWrap .readCont .readInfo span.bookmark::before {content: '\ea0f';}
 .boardReadWrap .readCont .readInfo span.commentNum::before {content: '\ea15';}
+.boardReadWrap .readCommentCont { padding-bottom: 20px;}
+.boardReadWrap .readCommentCont .commentList .basicComment {padding-top: 15px;}
+.boardReadWrap .readCommentCont .commentList .basicComment .commentBox {display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;}
+.boardReadWrap .readCommentCont .commentList .basicComment .commentBox .userState span {font-size: 12px;}
+.boardReadWrap .readCommentCont .commentList .basicComment .commentBox .userState span:not(:last-of-type) {margin-right: 10px;}
+.boardReadWrap .readCommentCont .commentList .basicComment .commentBox .userState span::before {margin-right: 3px; font-family: 'xeicon'; color: #1aaf97;}
+.boardReadWrap .readCommentCont .commentList .basicComment .commentBox .userState span.commentLike::before {content: '\ea11';}
+.boardReadWrap .readCommentCont .commentList .basicComment .commentBox .userState span.replyNum::before { content: '\ea15';}
+.boardReadWrap .readCommentCont .commentList .basicComment .textForm { font-size: 12px; list-style: 16px; color: #151515;}
+.boardReadWrap .readCommentCont .commentList .basicComment .createReply {font-size: 12px; font-weight: 800; border-bottom: 1px solid #2bb673;}
+.boardReadWrap .readCommentCont .commentList .basicComment .replyList {margin-top: 15px;}
+.boardReadWrap .readCommentCont .commentList .basicComment .replyList .replyEmpty .commentTextForm {display: block; width: 100%; resize: none; box-sizing: border-box; border-radius: 5px; border-color: #ddd; font-size: 12px; padding: 10px;}
+.boardReadWrap .readCommentCont .commentList .basicComment .replyList .replyEmpty .commentSubmit { float: right; width: 80px; height: 20px; border-radius: 5px; margin-top: 5px; color: #fff; font-size: 12px; background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%);}
+.boardReadWrap .readCommentCont .commentList .basicComment .replyList .replyBox {position: relative; padding: 10px 0 10px 25px; box-sizing: border-box; border-bottom: 1px solid #eee;}
+.boardReadWrap .readCommentCont .commentList .basicComment .replyList .replyBox::before {content: '\e981'; font-family: 'xeicon'; position: absolute; top: 15px; left: 0; font-size: 22px; line-height: 1; color: #666;}
+.boardReadWrap .readCommentCont .commentList .basicComment .replyList .replyBox .userInfo {margin-bottom: 10px;}
+.boardReadWrap .readCommentCont .commentList .basicComment .replyList .replyBox .textForm {font-size: 12px; list-style: 16px; color: #151515;}
+.boardReadWrap .readCommentCont .commentEmpty {margin-top: 15px;}
+.boardReadWrap .readCommentCont .commentEmpty .commentTextForm {display: block; width: 100%; border-color: #ddd; padding: 10px; resize: none; box-sizing: border-box; border-radius: 5px;}
+.boardReadWrap .readCommentCont .commentEmpty .commentSubmit { float: right; width: 80px; height: 20px; border-radius: 5px; margin-top: 5px; color: #fff; font-size: 12px; background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%);}
+
+/* 영수증 선택 */
+.billWrap {padding-top: 30px;}
+.billWrap h1 {width: 120px; margin: 0 auto 30px;}
+.billWrap h1 img {width: 100%;}
+.billWrap form{padding: 0 15px;}
+.billWrap form fieldset .dataBox {margin-bottom: 30px;}
+.billWrap form fieldset .dataBox label {display: block; margin-bottom: 15px; font-size: 16px; line-height: 1; font-weight: 800; color: #151515;}
+.billWrap form fieldset .dataBox .fileBox{position: relative; width: 100%; height: 40px; border-radius: 10px; background-image: linear-gradient(#fff, #fff), linear-gradient(to right, rgba(43,182,115,1), rgba(11,169,181,1)); border: 1px solid transparent; background-clip: content-box,border-box; background-origin: border-box; box-sizing: border-box;}
+.billWrap form fieldset .dataBox .fileBox input[type='file'] {position: absolute; opacity: 0;}
+.billWrap form fieldset .dataBox .fileBox span.placeHolder {position: absolute; top: 50%; left: 50%; font-size: 14px; font-weight: 600; transform: translate(-50%,-50%);}
+.billWrap form fieldset .dataBox .previewBtn {width: 100%; height: 40px; margin-top: 10px; background-color: #25b47f; border-radius: 10px;}
+.billWrap form fieldset .dataBox .previewBtn span {color: #fff; font-size: 14px; font-weight: 600;}
+.billWrap form fieldset .dataBox input[type='text'] {display: block; width: 100%; height: 42px; padding: 0 20px; border-radius: 10px; border: 1px solid #ddd; box-sizing: border-box; font-size: 14px;}
+.billWrap form fieldset .dataBox input[type='text']::placeholder {font-size: 14px; color: #999;}
+.billWrap form button[name='gmarkBtn'] {display: block; width: 100%; height: 40px; border-radius: 10px; color: #fff; font-size: 14px; font-weight: 600;}
+.billWrap form button#billSubmitBtn {background: linear-gradient(32deg, rgba(43,182,115,1) 0%, rgba(11,169,181,1) 100%);}
+.billWrap form button#billCancelBtn {margin-top: 10px; background-color: #b6b6b6;}
+
+
+
+
+
+
+
+
+
+
 
 
 

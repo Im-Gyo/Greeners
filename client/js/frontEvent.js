@@ -26,3 +26,9 @@ $('#menuActive').click(function()
         $('.mainHeader').removeClass('menuOn');
     }
 });
+
+//2댑스 이벤트
+$('nav > ul > li').click(function()
+{
+    $('nav > ul > li > ul').slideToggle();
+});
