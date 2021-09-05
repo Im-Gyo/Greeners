@@ -6,11 +6,11 @@ const db_info = require('../config/config');
 const dbPool = mysql.createPool(db_info);
 
 //메인 페이지
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
     res.render('index.html', {req: req});
-})
+});
 
-router.all('/mypage',  (req, res) => {
+router.get('/mypage', commonUtil.isLoggedIn, (req, res) => {
     res.render('mypage_sample.html', {req: req});
 });
 

@@ -8,6 +8,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require('express-session');
+const ejs = require('ejs');
 
 const passportConfig = require('./passport');
 const api = require('./routes/api.js');
@@ -19,9 +20,13 @@ const app = express();
 const server = http.createServer(app);
 passportConfig();
 
+app.set('views', path.join(__dirname, './client'));
+app.set('view engine', 'html');
+app.engine('html', ejs.renderFile);
+
 app.use(morgan('dev'));
 
-app.use(express.static(__dirname + '/client'));
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
@@ -34,6 +39,7 @@ app.use(session({
         secure : false
     },
 }));
+
 /*
 passport.initialize() : req객체에 passport 설정을 심음.
 passport.session() : req.session객체에 passport정보를 저장. req.session은 express-session에서 생성하는것이므로
@@ -47,6 +53,9 @@ app.use(passport.session());
 app.use('/', api);
 app.use('/protocolC', protocolC);
 app.use('/auth', auth);
+
+app.use(express.static(__dirname + '/client'));
+
 
 //잘못된 호출이나 파라미터로 서버 종료문제 잡는 곳
 process.on('uncaughtException', function(err){
