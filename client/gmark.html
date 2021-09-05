@@ -51,11 +51,20 @@
                             <input type="text" name="textForm" id="storeName" placeholder="매장명을 입력하세요">
                         </div>
                      </fieldset>
-                     <button type="button" name="gmarkBtn" class="resetbtn" id="billSubmitBtn">제출하기</button>
+                     <button type="button" name="gmarkBtn" class="resetbtn" id="billSubmitBtn" onclick="dataSubmit()">제출하기</button>
                      <button type="button" name="gmarkBtn" class="resetbtn" id="billCancelBtn">취소하기</button>
                  </form>
              </section>
         </div>
     </div>
+
+    <script>
+        var sendJsonObject = {};
+
+        function dataSubmit()
+        {
+            location.href='./beforePoint.html';
+        }
+    </script>
 </body>
 </html>
