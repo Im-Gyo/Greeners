@@ -1,5 +1,6 @@
 const passport = require('passport');
 const local = require('./localStrategy');
+const kakao = require('./kakaoStrategy');
 const commonUtil = require('../util/commonUtil');
 const mysql = require('mysql');
 const config = require('../config/config.json');
@@ -8,7 +9,7 @@ const connection = mysql.createConnection(config.dbInfo);
 module.exports = () => {
     //로그인시 실행. res.session객체에 어떤값을 저장할지 정한다.
     passport.serializeUser((user, done) => {
-        done(null, user[0].id);
+        done(null, user[0].user_snsId);
     });
 
     //매 요청시 마다 실행. serializeUser의 done의 두번째 인수가 매개변수가 된다.(user[0].id로 받은걸 여기서 id로사용)
@@ -16,7 +17,7 @@ module.exports = () => {
         let query = `
             SELECT  *
             FROM    user
-            WHERE   id = ${id}
+            WHERE   user_snsId = ${id}
         `;
         connection.query(query, (error, results) => {
             if(error){
@@ -32,4 +33,5 @@ module.exports = () => {
     */
 
     local();
+    kakao();
 }
